@@ -4,7 +4,7 @@ import bcrypt from "bcryptjs";
 import { db } from "@/lib/db";
 import { ResetPasswordSchema } from "@/lib/validations";
 
-export async function resetPassword(token: string | null, values: any) {
+export async function resetPassword(token: string | null, values: { password: string } | FormData) {
   if (!token) {
     return { error: "Token is required" };
   }

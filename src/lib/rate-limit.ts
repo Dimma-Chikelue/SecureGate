@@ -16,7 +16,7 @@ async function checkUpstashLimit(ip: string, limit: number, durationMs: number) 
     });
     const data = await getRes.json();
     
-    let attempts = data.result ? parseInt(data.result, 10) : 0;
+    const attempts = data.result ? parseInt(data.result, 10) : 0;
     
     if (attempts >= limit) {
       const ttlRes = await fetch(`${url}/ttl/${key}`, {

@@ -39,7 +39,7 @@ export default function LoginPage() {
       const url = new URL(window.location.href);
       url.searchParams.delete("error");
       window.history.replaceState({}, "", url.toString());
-    } catch (err) {
+    } catch {
       // Silently fail if URL manipulation fails - error is already set
     }
   }, [searchParams, errorMessages]);
