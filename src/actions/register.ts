@@ -6,7 +6,7 @@ import { db } from "@/lib/db";
 import { RegisterSchema } from "@/lib/validations";
 import { sendVerificationEmail } from "@/lib/mail";
 
-export async function register(values: any) {
+export async function register(values: Record<string, unknown> | FormData) {
   // Convert FormData to object if needed
   let data = values;
   if (values instanceof FormData) {

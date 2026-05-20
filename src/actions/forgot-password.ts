@@ -7,7 +7,7 @@ import { ForgotPasswordSchema } from "@/lib/validations";
 import { sendPasswordResetEmail } from "@/lib/mail";
 import { rateLimit, FORGOT_PASSWORD_RATE_LIMIT } from "@/lib/rate-limit";
 
-export async function forgotPassword(values: any) {
+export async function forgotPassword(values: Record<string, unknown> | FormData) {
   const ip = headers().get("x-forwarded-for") || "127.0.0.1";
   
   // Protect forgot-password with 3 attempts per 10 minutes
