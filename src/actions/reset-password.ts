@@ -12,12 +12,12 @@ export async function resetPassword(token: string | null, values: { password: st
   // Convert FormData to object if needed
   let data = values;
   if (values instanceof FormData) {
-    data = { password: values.get("password") };
+    data = { password: String(values.get("password") ?? "") };
   }
 
   const validated = ResetPasswordSchema.safeParse(data);
   if (!validated.success) {
-    return { error: validated.error.errors[0]?.message || "Invalid fields" };
+    return { error: validated.error.issues[0]?.message || "Invalid fields" };
   }
 
   const { password } = validated.data;

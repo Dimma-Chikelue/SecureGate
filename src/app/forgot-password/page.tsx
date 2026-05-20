@@ -18,13 +18,13 @@ export default function ForgotPasswordPage() {
     const formData = new FormData(e.currentTarget);
     const result = await forgotPassword(formData);
 
-    if (result?.error) {
+    if ("error" in result) {
       setError(result.error);
       setLoading(false);
       return;
     }
 
-    setSuccess(result?.success || "If an account exists, a reset link has been sent.");
+    setSuccess(result.success);
     setLoading(false);
   }
 

@@ -19,7 +19,7 @@ export async function register(values: Record<string, unknown> | FormData) {
   
   const validated = RegisterSchema.safeParse(data);
   if (!validated.success) {
-    return { error: validated.error.errors[0]?.message || "Invalid fields" };
+    return { error: validated.error.issues[0]?.message || "Invalid fields" };
   }
 
   const { name, email, password } = validated.data;

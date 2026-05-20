@@ -39,13 +39,10 @@ export default function ResetPasswordPage({
 
     const formData = new FormData(e.currentTarget);
     const result = await resetPassword(params.token, formData);
+    const errMsg = "error" in result ? result.error : undefined;
 
-    if (result?.error) {
-      if (result.fieldErrors) {
-        setFieldErrors(result.fieldErrors);
-      } else {
-        setError(result.error);
-      }
+    if (errMsg) {
+      setError(errMsg);
       setLoading(false);
       return;
     }

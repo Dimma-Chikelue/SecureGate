@@ -35,13 +35,10 @@ export default function SignupPage() {
 
     const formData = new FormData(e.currentTarget);
     const result = await register(formData);
+    const errMsg = "error" in result ? result.error : undefined;
 
-    if (result?.error) {
-      if (result.fieldErrors) {
-        setFieldErrors(result.fieldErrors);
-      } else {
-        setError(result.error);
-      }
+    if (errMsg) {
+      setError(errMsg);
       setLoading(false);
       return;
     }
