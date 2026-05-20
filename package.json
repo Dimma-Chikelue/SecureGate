@@ -1,0 +1,41 @@
+{
+  "name": "securegate",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.1.0",
+    "@prisma/adapter-neon": "^7.8.0",
+    "@prisma/client": "^7.8.0",
+    "@react-email/components": "^1.0.12",
+    "@swc/helpers": "^0.5.21",
+    "@upstash/ratelimit": "^2.0.8",
+    "@upstash/redis": "^1.38.0",
+    "bcryptjs": "^3.0.3",
+    "dotenv": "^17.4.2",
+    "effect": "^3.21.2",
+    "next": "14.2.35",
+    "next-auth": "^4.24.14",
+    "oauth": "^0.10.2",
+    "react": "^18",
+    "react-dom": "^18",
+    "resend": "^6.12.3",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.35",
+    "prisma": "^7.8.0",
+    "retry": "^0.10.1",
+    "typescript": "^5"
+  }
+}
